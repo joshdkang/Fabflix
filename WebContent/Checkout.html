@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+<body>
+<h1><a href="shopping-cart.html">Go back to shopping cart</a></h1>
+<h2>Enter your payment info</h2>
+<!-- Set the method to POST to avoid showing the name and credit card info in the URL
+     The default action is disabled to allow your own implementation. -->
+<form id="checkout_form" method="post" action="#">
+    <label><b>First Name</b></label>
+    <input type="text" placeholder="First Name" name="firstName">
+    <br>
+    <label><b>Last Name</b></label>
+    <input type="text" placeholder="Last Name" name="lastName">
+    <br>
+    <label><b>Card Number</b></label>
+    <input type="text" placeholder="Card Number" name="number">
+    <label><b>Expiration Date</b></label>
+    <input type="text" placeholder="Expiration Date" name="expiration">
+    <br>
+    <br>
+    <input type="submit" value="Checkout">
+</form>
+
+<h3 id="checkout_error_message"></h3>
+
+<table id=sale_table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Sale ID</th>
+        <th>Movie Title</th>
+        <th>Movie Id</th>
+        <th>
+    </tr>
+    </thead>
+
+    <!-- Table body is left empty here, will be populated with the data retrieved with shopping-cart.js -->
+    <!-- shopping-cart.js will find this html element by it's id "cart_table_body" -->
+    <tbody id=sale_table_body></tbody>
+</table>
+
+
+<!-- include jQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- include our own JS file -->
+<script src="./Checkout.js"></script>
+
+</body>
+</html>

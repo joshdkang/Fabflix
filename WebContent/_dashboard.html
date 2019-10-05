@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Dashboard</title>
+</head>
+<body>
+<h1>Employee Dashboard</h1>
+<h2>Insert New Star to Database</h2	>
+
+<form id="star_form" method="post" action="#">
+    <label><b>Star name</b></label>
+    <input type="text" id = "nameTextBox" placeholder="Enter Star Name" name="name">
+    <br>
+    <label><b>Birth year</b></label>
+    <input type="text" id="yearTextBox" placeholder="Enter Birth Year" name="year">
+    <br>
+    <input type="submit" id="Button">
+
+</form>
+
+<div id="insert_error_message"></div>
+<div id="insert_success_message"></div>
+<br>
+<br>
+<h2>Insert New Movie to Database</h2	>
+<form id="movie_form" method="post" action="#">
+	<label><b>Movie Id</b></label>
+    <input type="text" id = "idTextBox" placeholder="Enter Movie Id" name="id">
+    <br>
+	<label><b>Movie Title</b></label>
+    <input type="text" id = "nameTextBox" placeholder="Enter Movie Title" name="title">
+    <br>
+	<label><b>Movie Year</b></label>
+    <input type="text" id = "nameTextBox" placeholder="Enter Movie Year" name="year">
+    <br>
+	<label><b>Movie Director</b></label>
+    <input type="text" id = "nameTextBox" placeholder="Enter Movie Director" name="director">
+    <br>
+    <label><b>Star Name</b></label>
+    <input type="text" id = "starnameTextBox" placeholder="Enter Star Name" name="starname">
+    <br>
+    <label><b>Genre</b></label>
+    <input type="text" id="genreTextBox" placeholder="Enter Genre" name="genre">
+    <br>
+    <input type="submit" id="Button">
+
+</form>
+
+<div id="insert_error_message1"></div>
+<div id="insert_success_message1"></div>
+
+<br>
+<br>
+
+<form id="metadata_form" method="get" action="#">
+	<button id="MetadataButton" type="button" onclick="getMetaData();">Show Metadata</button>
+</form>
+<table id=metadata_table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Table Name</th>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Null</th>
+        <th>Key</th>
+        <th>
+    </tr>
+    </thead>
+
+    <!-- Table body is left empty here, will be populated with the data retrieved with single-star.js -->
+    <!-- single-star.js will find this html element by it's id "movie_table_body" -->
+    <tbody id=metadata_table_body></tbody>
+</table>
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!-- include our own JS file -->
+<script src="_dashboard.js"></script>
+
+</body>
+</html>

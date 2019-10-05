@@ -1,0 +1,157 @@
+<!-- 		
+			This html file creates an html template with undefined elements for movies (title, year, director, genres, stars, rating)
+  			and loads index.js to populate the data into the Movie list 
+ -->
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, intial-scale=1, shrink-to-fit=no">
+		
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">   
+    
+	<title>Movie List</title>
+</head>
+<body>
+<h1 align="center">Fabflix Home </h1>
+
+<h2 align="right"><a href="shopping-cart.html">Shopping Cart</a></h2>
+
+<!-- Search box for users to enter a term and then display movies matching search -->
+<form>
+  <div class="form-group">
+    <label for="searchInput1">Search For Movie:</label>
+    <input type="text" class="autocomplete-searchbox form-control" id="titleInput" placeholder="Movie Title">
+    <input type="text" class="form-control" id="yearInput" placeholder="Year">
+    <input type="text" class="form-control" id="directorInput" placeholder="Directed By">
+    <input type="text" class="form-control" id="starInput" placeholder="Stars">
+  </div>
+  <div class="form-group">
+    <div class="submit-button">
+  <button id="SearchButton" type="button" onclick="getUserSearch();" class="btn btn-primary justify-content-end">Submit</button>
+    </div>
+  </div>  
+</form>
+
+<!-- Drop down menu to select sorting of movies -->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort By
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item active" type="button" onclick='sort("rate", "desc");'>Rating (High to Low)</button>
+    <button class="dropdown-item" type="button" onclick='sort("rate", "asc");'>Rating (Low to High)</button>
+    <button class="dropdown-item" type="button" onclick='sort("title", "asc");'>Title (Ascending A-Z)</button>
+    <button class="dropdown-item" type="button" onclick='sort("title", "desc");'>Title (Descending Z-A)</button>
+  </div>
+</div>
+
+<!-- Drop down menu to select number of results per page -->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Number of Results
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+    <button class="dropdown-item active" type="button" onclick='changeNumberResults("10");'>10</button>
+    <button class="dropdown-item" type="button" onclick='changeNumberResults("25");'>25</button>
+    <button class="dropdown-item" type="button" onclick='changeNumberResults("50");'>50</button>
+  </div>
+</div>
+
+<table id=genre_table class="table table-striped">
+    <thead>
+    <tr>
+    <th></th>
+    </tr>
+    </thead>
+
+    <!-- Table body is left empty here, will be populated with the data retrieved with single-star.js -->
+    <!-- single-star.js will find this html element by it's id "movie_table_body" -->
+    <tbody id=genre_table_body></tbody>
+</table>     
+  
+<h6 align="center">
+<a href="javascript:void(0);" onclick='browseByFirstChar("A");'>A</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("B");'>B</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("C");'>C</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("D");'>D</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("E");'>E</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("F");'>F</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("G");'>G</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("H");'>H</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("I");'>I</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("J");'>J</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("K");'>K</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("L");'>L</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("M");'>M</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("N");'>N</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("O");'>O</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("P");'>P</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("Q");'>Q</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("R");'>R</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("S");'>S</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("T");'>T</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("U");'>U</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("V");'>V</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("W");'>W</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("X");'>X</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("Y");'>Y</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("Z");'>Z</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("0");'>0</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("1");'>1</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("2");'>2</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("3");'>3</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("4");'>4</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("5");'>5</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("6");'>6</a> | 
+<a href="javascript:void(0);" onclick='browseByFirstChar("7");'>7</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("8");'>8</a> | <a href="javascript:void(0);" onclick='browseByFirstChar("9");'>9</a>
+</h6>
+
+<!-- H3 body is left empty here, will be populated with the data retrieved with index.js -->
+<!-- index.js will find this html element by it's id "movie_info" -->
+<h3 id="star_info"></h3>
+
+
+<!-- Table to fil out movies with information for each row -->
+<table id=movie_table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Movie Title</th>
+        <th>Release Year</th>
+        <th>Director</th>
+        <th>Genres</th>
+        <th>Stars</th>
+        <th>Rating</th>
+        <th>Buy</th>
+        <th>
+    </tr>
+    </thead>
+
+    <!-- Table body is left empty here, will be populated with the data retrieved with single-star.js -->
+    <!-- single-star.js will find this html element by it's id "movie_table_body" -->
+    <tbody id=movie_table_body></tbody>
+</table>
+
+
+<!-- Pagination to view movies-->
+<nav aria-label="pagination bar">
+  <ul class="pagination justify-content-end">
+    <li class="page-item"><a class="page-link" type="button" onclick='changeOffset(-1);'>Previous</a></li>
+    <li class="page-item"><a class="page-link" type="button" onclick='changeOffset(1);'>Next</a></li>
+  </ul>
+</nav>
+
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- include jquery autocomplete JS  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.7/jquery.autocomplete.min.js"></script>
+
+
+<!-- Load our own JS file -->
+<!-- The path is relative to index.html, since these two files are in the same directory -->
+<!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+     otherwise the url is relative to the root path-->
+<script src="index.js"></script>
+
+</body>
+</html>
+
+<style>
+  .submit-button {
+    float: right;
+  }
+
+  .dropdown {
+    float: right;
+  }
+</style>

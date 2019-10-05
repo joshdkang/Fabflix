@@ -1,0 +1,4 @@
+We used the "LIKE" predicate in the MovieListServlet and BrowseServlet for substring matching queries. They were used to create a query based on fields the user types. The LIKE predicates were used to find substrings within certain data entries that followed the patterns %substring, %substring%, and 
+substring%.
+
+

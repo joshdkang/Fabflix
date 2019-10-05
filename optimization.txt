@@ -1,0 +1,6 @@
+Apart from using PreparedStatements and auto-commit off,
+
+We used batch inserts and waited until the very end to execute the batch.
+We also preferred data that we knew we would need at the very beginning such as 
+existing genres and base movieId.
+We also limited the amount of connections and statements that we created. By passing exisitng connections and statements through functions we saved time allocating and freeing resources.
