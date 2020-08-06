@@ -13,7 +13,7 @@ Developed by: Joshua Kang and Joseph Nguyen
 sample username: a@email.com; password: a2
 ![ScreenShot](https://github.com/joshdkang/Fabflix/blob/master/Fabflix%20Screenshots/Login.png?raw=true)
 
-### Fabflix home page. Search for movies by title, year, director, stars, and genre. Browse movies by genre or character in name.
+### Fabflix home page. Search for movies by title, year, director, and stars. Browse movies by genre or character in name.
 ![ScreenShot](https://github.com/joshdkang/Fabflix/blob/master/Fabflix%20Screenshots/Fabflix%20Home.png)
 
 ### Fuzzy search with autocomplete when searching for movie names.  
