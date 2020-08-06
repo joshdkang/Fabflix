@@ -36,3 +36,7 @@ sample username: a@email.com; password: a2
 
 ### Add movies to shopping cart, edit shopping cart, and check out.
 ![ScreenShot](https://github.com/joshdkang/Fabflix/blob/master/Fabflix%20Screenshots/Shopping%20Cart.png?raw=true)
+
+### Access employee dashboard to add new star or movie into database and view metadata of database. 
+sample username: classta@email.edu; password: classta
+![ScreenShot](https://github.com/joshdkang/Fabflix/blob/master/Fabflix%20Screenshots/Employee%20Dashboard.png?raw=true)
